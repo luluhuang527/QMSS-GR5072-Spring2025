@@ -1,0 +1,7 @@
+Why do so many people call the programs folder "src" ?
+
+https://news.ycombinator.com/item?id=31122343
+
+'src' has inertia carried over from Unix. Unix systems have kept the source is /usr/src since since at least the late 70s. 
+Originally, way, way back in the day, there was good reason to be so terse. The first UNIX machines had literal teletypes for terminals; 
+printers with moving parts. Every extra character meant wear and tear, paper, ink, and especially, time.
