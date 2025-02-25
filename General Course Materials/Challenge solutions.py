@@ -21,3 +21,65 @@ items[4:0:-1] # reverse order and don't include the last element, which is spam 
 items + ["lobster"]
 
 
+###  Week 3 ===================================
+
+import numpy as np
+np.array(range(2,21,2))
+np.arange(2,21,2)
+
+
+## Gender challenge
+# solution 1
+gender = np.array(["Female", "F", "Female", "M", "Male"])  
+gender
+gender.astype('<U1') # Select first character, by converting to a type which only stores one byte
+
+# solution 2
+np.where(len(gender)==1, gender, gender.astype('<U1'))
+
+# solution 3
+np.where(np.where(gender == "Female", "F", gender) == "Male", "M", "NA")
+
+# solutoin 4
+np.where(np.in1d(gender, ['F', 'M']), gender, gender.astype('<U1'))
+
+
+## Linear algebra challenge
+# Generate data for this exercise
+rng = np.random.default_rng(seed=3252)
+x1 = rng.standard_normal(1000)
+x2 = rng.standard_normal(1000)
+Y = -1 + 2*x1 + 7*x2 + rng.standard_normal(1000)
+
+# Step 1
+X = np.column_stack((np.ones(1000), x1, x2))
+X
+#Step 2
+beta_hat = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(Y)
+beta_hat
+
+
+##  Week 5 ===================================
+
+# Fix function to accept np.inf values
+def rescale01(x):
+    x = x.replace(np.inf, np.nan)
+    min_ = x.min()  
+    max_ = x.max()
+    return ( x - min_ ) / ( max_ - min_ )
+rescale01(x)
+
+# Update function to round to 2 decimals
+def rescale01(x):
+    x = x.replace(np.inf, np.nan)
+    min_ = x.min()  
+    max_ = x.max()
+    return round(( x - min_ ) / ( max_ - min_ ), 2)
+rescale01(x)
+
+# Renaming functions
+# prefix_match -> find_prefix or eval_prefix
+# remove_last -> drop_last or cut_last
+# match_length-> gen_len
+
+
