@@ -141,3 +141,54 @@ for col in iris.columns:
         m = np.mean(iris[col])       # Compute mean
         means.append(m)              # Append mean
 means       
+
+
+###  Week 7 ===================================
+
+import re
+
+# regex challenge 1:
+string = '39801 356, 2102 1111'
+pattern = r'\d{3} \d{2}'
+
+# match variable contains a Match object.
+match = re.findall(pattern, string) 
+print(match)
+   
+
+# regex challenge 2:
+string = "Python is fun"
+
+# check if 'Python' is at the beginning
+match = re.match('Python', string)  # match function only checks at the beginning of string
+print(match)
+match = re.findall('^Python', string)  # use "^" to pattern match at start of string
+print(match)
+
+# Check for the string "fun" only at end of string
+match = re.findall(r'fun$', string)  # use "^" to pattern match at start of string
+print(match)
+ string = "Python is funny"
+match = re.findall(r'fun$', string)  # use "^" to pattern match at start of string
+print(match)
+
+
+# regex challenge 3:   
+# Match strings starting with "The"
+regex = 'The'
+strings = ['The quick brown fox', 'The lazy dog', 'A quick brown fox']
+for string in strings:
+    if re.match(regex, string):
+        print(f'Matched: {string}')
+    else:
+        print(f'Not matched: {string}') 
+  
+reg = r'fox$'
+print([re.findall(reg, x) for x in strings])
+    
+# regex challenge 4:
+string0 = ["I went to him at 11 A.M. on 4th July 1886", "She went to him at 10 A.M. on 4th July 1890"]
+for string in string0:
+    print(re.findall("\d{4}", string))
+
+
