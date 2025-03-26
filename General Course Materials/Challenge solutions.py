@@ -83,3 +83,112 @@ rescale01(x)
 # match_length-> gen_len
 
 
+###  Week 6 ===================================
+
+### Practice for for loops
+
+# Generate data for practice problems
+import numpy as np
+import pandas as pd 
+import seaborn as sns
+
+rng = np.random.default_rng(seed=3252)
+
+a = rng.standard_normal(10)
+b = rng.standard_normal(10)
+c = rng.standard_normal(10)
+d = rng.standard_normal(10)
+
+the_dict = {'a':a,'b':b,'c':c,'d':d}
+
+df = pd.DataFrame(the_dict)
+
+# a) Compute the mean of every column in df.
+### iteration using a for loop
+output = []
+for i in df.columns:
+    output.append(round(np.mean(df[i]),2))
+output
+
+
+# b) Determine the type of data each column holds.
+output = []
+for i in df.columns:
+    data_type = type(df[i][0])
+    output.append(data_type) 
+output
+
+
+# c) Compute the number of unique values in each column of iris
+from sklearn import datasets # to load iris dataset
+iris0 = datasets.load_iris()
+iris = pd.DataFrame(data=iris0.data, columns=iris0.feature_names)
+
+unique_vals = []
+for i in iris.columns:
+    unique_vals.append(len(np.unique(iris[i])))          
+unique_vals
+
+
+# d) Write a function that prints the mean of each numeric column in the iris dataframe. 
+# This for loop will need to check whether each dtype is numeric. 
+# If it is, then you will compute and store the mean, adding it to a list object.
+from pandas.api.types import is_numeric_dtype
+means = []
+for col in iris.columns:
+    # if type(iris[col][0]) == np.float64:   # Works, but only checks for one numeric data type!
+    if is_numeric_dtype(iris[col]):  # Recall that you need to tell Python this col is in the iris df
+        m = np.mean(iris[col])       # Compute mean
+        means.append(m)              # Append mean
+means       
+
+
+###  Week 7 ===================================
+
+import re
+
+# regex challenge 1:
+string = '39801 356, 2102 1111'
+pattern = r'\d{3} \d{2}'
+
+# match variable contains a Match object.
+match = re.findall(pattern, string) 
+print(match)
+   
+
+# regex challenge 2:
+string = "Python is fun"
+
+# check if 'Python' is at the beginning
+match = re.match('Python', string)  # match function only checks at the beginning of string
+print(match)
+match = re.findall('^Python', string)  # use "^" to pattern match at start of string
+print(match)
+
+# Check for the string "fun" only at end of string
+match = re.findall(r'fun$', string)  # use "^" to pattern match at start of string
+print(match)
+ string = "Python is funny"
+match = re.findall(r'fun$', string)  # use "^" to pattern match at start of string
+print(match)
+
+
+# regex challenge 3:   
+# Match strings starting with "The"
+regex = 'The'
+strings = ['The quick brown fox', 'The lazy dog', 'A quick brown fox']
+for string in strings:
+    if re.match(regex, string):
+        print(f'Matched: {string}')
+    else:
+        print(f'Not matched: {string}') 
+  
+reg = r'fox$'
+print([re.findall(reg, x) for x in strings])
+    
+# regex challenge 4:
+string0 = ["I went to him at 11 A.M. on 4th July 1886", "She went to him at 10 A.M. on 4th July 1890"]
+for string in string0:
+    print(re.findall("\d{4}", string))
+
+
