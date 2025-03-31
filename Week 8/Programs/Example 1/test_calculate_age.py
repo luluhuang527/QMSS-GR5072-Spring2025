@@ -6,7 +6,7 @@ os.getcwd()
 
 from calculate_age import get_age
 from calculate_age import t
-import calculate_age       # <--- Does not work !
+# import calculate_age       # <--- Does not work !
 from calculate_age import *  # <--- Works -- but use wildcard "*" importing with extreme caution ! 
 import pytest
 
@@ -18,6 +18,7 @@ def test_get_age():
     # Check for a potential exception
     assert age == 29, "Age is incorrectly calculated, it should be 29!"  # If this assertaion fails, an exception is raised ! We need to check our code
 
+# Question: Which other tests should we add to get at a comprehensive test suite?
 
 # get_age(1980, 1, 23)
 
@@ -32,8 +33,8 @@ def test_get_age():
 #########################################
 
 # Run these two lines in your PC's terminal - updating your path to Example 1
-# cd C:\Users\nicho\OneDrive\Desktop\MDS\QMSS-GR5072-Spring2025\Week 8\Programs\Example 1
-# python -m pytest  
+cd C:\Users\nicho\OneDrive\Desktop\MDS\QMSS-GR5072-Spring2025\Week 8\Programs\Example 1
+python -m pytest  
 
 # This code runs the pytest module using the Python interpreter.
 # • The -m flag specifies that the module should be run as a script.
