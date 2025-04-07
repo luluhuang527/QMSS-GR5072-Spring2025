@@ -1,6 +1,6 @@
 # Set directory
 import os
-os.chdir(r'C:\Users\nicho\OneDrive\Desktop\MDS\QMSS-GR5072-Spring2025\Week 8\Programs\Example 2')
+os.chdir(r'C:\Users\lulu\Documents\GitHub\QMSS-GR5072-Spring2025_Class\Week 8\Programs\Example 2')
 
 # Import module
 from fib_module import fib
@@ -24,8 +24,8 @@ def test_fib6():
 ###            Add them! (Hint: Check the fib_module.py for some special cases)
     
 # # Run these two lines in your PC's terminal - updating your path for the Example 2 directory
-# cd C:\Users\nicho\OneDrive\Desktop\MDS\QMSS-GR5072-Spring2025\Week 8\Programs\Example 2
-# python -m pytest  
+# cd C:\Users\lulu\Documents\GitHub\QMSS-GR5072-Spring2025_Class\Week 8\Programs\Example 2
+# python -m pytest test_fib_module.py
 
 # This code runs the pytest module using the Python interpreter.
 # • The -m flag specifies that the module should be run as a script.
