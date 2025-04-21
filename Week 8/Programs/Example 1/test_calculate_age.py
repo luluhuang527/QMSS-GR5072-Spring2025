@@ -7,8 +7,10 @@ os.getcwd()
 from calculate_age import get_age
 from calculate_age import t
 # import calculate_age       # <--- Does not work !
-from calculate_age import *  # <--- Works -- but use wildcard "*" importing with extreme caution ! 
+# from calculate_age import *  # <--- Works -- but use wildcard "*" importing with extreme caution ! 
 import pytest
+import datetime
+
 
 def test_get_age():
     # Given example data to test. 
@@ -33,8 +35,8 @@ def test_get_age():
 #########################################
 
 # Run these two lines in your PC's terminal - updating your path to Example 1
-cd C:\Users\nicho\OneDrive\Desktop\MDS\QMSS-GR5072-Spring2025\Week 8\Programs\Example 1
-python -m pytest  
+# cd C:\Users\nicho\OneDrive\Desktop\MDS\QMSS-GR5072-Spring2025\Week 8\Programs\Example 1
+# python -m pytest  
 
 # This code runs the pytest module using the Python interpreter.
 # • The -m flag specifies that the module should be run as a script.
