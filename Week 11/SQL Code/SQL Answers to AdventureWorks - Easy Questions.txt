@@ -1,7 +1,4 @@
-##### Make a freq table in SQL ####
-SELECT CompanyName, COUNT(CompanyName)
-  FROM Customer
-  GROUP BY CompanyName;
+
 
 SELECT OrderQty, COUNT(OrderQty)
   FROM SalesOrderDetail
