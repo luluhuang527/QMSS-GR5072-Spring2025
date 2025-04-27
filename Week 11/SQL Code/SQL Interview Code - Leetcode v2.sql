@@ -71,7 +71,11 @@ SELECT col, AVG(column_name)  --Shows avg by col
   FROM table_name
   GROUP BY col1        
 
-SELECT Country, COUNT(CustomerID), -- Frequnecy table
+SELECT Country, COUNT(Country) -- Frequnecy table
+  FROM Customers
+  GROUP BY Country
+
+SELECT Country, COUNT(CustomerID) -- Frequnecy table
   FROM Customers
   GROUP BY Country
   HAVING COUNT(CustomerID) > 5 -- HAVING bc WHERE doesn't work with GROUP BY
